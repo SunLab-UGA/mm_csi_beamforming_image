@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beamscan Controller</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+        }
+        img {
+            background-color: #333;
+        }
+        .fancy-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition-duration: 0.4s;
+        }
+        .fancy-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Beamscan Interface</h1>
+    <p>Use this interface to run the beamscan script and view the latest image data.</p>
+    <p>Click the button below to run a beamscan.</p>
+    <p>The data will be collected and stored within: {{ base_datapath }}</p>
+    <div>
+        <h2>Latest Image Data</h2>
+        <p>Time: {{ base_time }}</p>
+        <img src="{{ image1 }}" alt="Image 1" style="width:300px;height:auto;border:5px solid white;">
+        <img src="{{ image2 }}" alt="Image 2" style="width:300px;height:auto;border:5px solid white;">
+        <img src="{{ image3 }}" alt="Image 3" style="width:300px;height:auto;border:5px solid white;">
+    </div>
+    <form action="/beamscan" method="post">
+        <button class="fancy-button" type="BeamScan!">Run Script</button>
+    </form>
+</body>
+</html>
